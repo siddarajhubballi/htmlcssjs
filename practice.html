@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>P</title>
+    <style>
+      #mytable
+      {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="mytable">
+      <tr>
+        <td><input id="css" type="checkbox" name="css" value="css">
+        <label>CSS</label></td>
+      </tr>
+      <tr>
+        <td><input id="html" type="checkbox" name="html" value="html"><label>html</label></td>
+      </tr>
+    </table>
+    <br>
+    <h1 id="display"></h1>
+    <button type="button" onclick="display()" name="button">submit</button>
+
+    <script>
+      function display()
+      {
+        var ls=new Array();
+        var mytable=document.getElementById("mytable");
+        var chk=mytable.getElementsByTagName("input");
+        for(let i=0; i<=chk.length-1; i++)
+        {
+          if(chk[i].checked==true)
+          {
+            ls.push(chk[i].value);
+          }
+        }
+
+        if(ls.length>0)
+        {
+          document.getElementById("display").innerHTML="languages selected are:" + ls.join(",");
+          alert("languages selected are:" + ls.join(","));
+        }
+      }
+    </script>
+  </body>
+</html>
